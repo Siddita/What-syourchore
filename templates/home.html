@@ -1,0 +1,60 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What's the Chore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+        .quote {
+            margin: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+        .jobs-section {
+            margin: 20px;
+        }
+        .job {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .hire-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>What's the Chore</h1>
+    </header>
+    <div class="quote">
+        "Hire experts to handle your chores, so you can focus on what matters most."
+    </div>
+    <div class="jobs-section">
+        <h2>Job Openings</h2>
+        {% for job in jobs %}
+            {% with job=job %}
+                {% include 'jobsitem.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+</body>
+</html>
