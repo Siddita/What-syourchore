@@ -1,12 +1,9 @@
-    <!-- templates/jobsitem.html -->
-    <div class="job">
-        <h4>{{ job.title }}</h4>
-        <div><b>Location:</b> {{ job.location }}</div>
-        <div><b>Salary:</b> {{ job.salary }}</div>
-        
-        <button class="hire-button">
-            <a href="mailto:someone@whatsthechore.com?subject=Application for {{ job.title }}&body=My name: <your name here>%0D%0AMy Resume link: <resumelink>%0D%0AMy LinkedIn: <linkedin page>" target="_blank">
-                Hire Now
-            </a>
-        </button>
-    </div>
+<!-- templates/jobsitem.html -->
+<div class="job">
+    <h4>{{ job.title }}</h4>
+    <div><b>Location:</b> {{ job.location }}</div>
+    <div><b>Salary:</b> {{ job.salary }}</div>
+    <button class="hire-button">
+        <a href="mailto:someone@whats-the-chore.com?subject=Application for {{ job.title }}" style="color: white; text-decoration: none;">Hire Now</a>
+    </button>
+</div>

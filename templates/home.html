@@ -1,43 +1,197 @@
-<!-- templates/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's the Chore</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
         header {
-            background-color: #f8f8f8;
-            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px;
             text-align: center;
         }
-        .quote {
-            margin: 20px;
-            text-align: center;
-            font-style: italic;
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
-        .jobs-section {
-            margin: 20px;
+        nav ul li {
+            margin: 0 15px;
         }
-        .job {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
             border-radius: 5px;
         }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        .quote {
+            margin: 40px auto;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.5em;
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+        }
+        .jobs-section {
+            margin: 40px auto;
+            width: 80%;
+        }
+        .jobs-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #2575fc;
+        }
+        .job {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .job:hover {
+            transform: translateY(-5px);
+        }
+        .job img {
+            max-width: 150px;
+            margin-right: 30px;
+            border-radius: 10px;
+        }
+        .job-description {
+            flex-grow: 1;
+        }
+        .job-description h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .job-description p {
+            margin: 0;
+            line-height: 1.6;
+            color: #666;
+        }
         .hire-button {
-            background-color: #4CAF50;
+            background-color: #6a11cb;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 16px;
-            margin-top: 10px;
+            font-weight: bold;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .hire-button:hover {
+            background-color: #5a0dbb;
+        }
+        .about-section {
+            background-color: #fff;
+            padding: 50px 20px;
+            margin: 40px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .about-section h2 {
+            text-align: center;
+            color: #2575fc;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .about-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: center;
+            color: #666;
+        }
+        .contact-section {
+            background-color: #e0e0e0;
+            padding: 50px 20px;
+            margin: 40px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-section h2 {
+            text-align: center;
+            color: #2575fc;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        .contact-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+        }
+        .contact-button {
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .contact-button:hover {
+            background-color: #5a0dbb;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            .job {
+                flex-direction: column;
+                text-align: center;
+            }
+            .job img {
+                margin: 0 auto 20px;
+            }
         }
     </style>
 </head>
@@ -45,10 +199,18 @@
     <header>
         <h1>What's the Chore</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#jobs">Job Openings</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     <div class="quote">
         "Hire experts to handle your chores, so you can focus on what matters most."
     </div>
-    <div class="jobs-section">
+    <div class="jobs-section" id="jobs">
         <h2>Job Openings</h2>
         {% for job in jobs %}
             {% with job=job %}
@@ -56,5 +218,22 @@
             {% endwith %}
         {% endfor %}
     </div>
+
+    <!-- About Us Section -->
+    <div class="about-section" id="about">
+        <h2>About Us</h2>
+        <p>At What's the Chore, we believe that your time is valuable. Our mission is to connect you with experts who can take care of your chores efficiently and professionally, allowing you to focus on what truly matters. Whether you need help with daily household tasks or specialized services, our vetted professionals are here to assist you every step of the way.</p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, suggestions, or need further assistance, feel free to reach out to us. We're here to help you with whatever you need!</p>
+        <a href="mailto:contact@whatsthechore.com" class="contact-button">Email Us</a>
+    </div>
+
+    <footer>
+        &copy; 2024 What's the Chore. All rights reserved.
+    </footer>
 </body>
 </html>
